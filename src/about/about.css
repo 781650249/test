@@ -1,0 +1,59 @@
+.cc{
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 50px;
+    overflow: hidden;
+}
+.cc h3{
+    text-align: center;
+    border-bottom: 1px lightgray solid ;
+}
+.ditu{
+    margin: 100px 0 0 100px;
+    display: inline-block;
+}
+.contact{
+    display: inline-block;
+}
+.contact .produce{
+    width: 350px;
+    float: right;
+    margin-left: 60px;
+   
+
+}
+
+.cc .contact ul{
+    margin-left: 60px;
+    height: 40px;
+    margin-bottom: 30px;
+}
+
+.cc .contact ul li{
+    list-style: none;
+}
+.cc .contact ul li img {
+    margin-top: 10px;
+    width: 20px;
+    height: 20px;
+}
+.cc .contact ul li span{
+    margin-left: 5px;
+    font-size: 12px;
+
+}
+.footer{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.footer .foot{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.footer .foot li {
+    margin: 0 auto;
+    text-align: center;
+
+}

@@ -1,0 +1,34 @@
+.cc {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.cc h3{
+ 
+    text-align: center;
+    border-bottom: 1px lightgray solid ;
+}
+
+.wrap{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.wrap .con{
+    width: 100%;
+    text-align: center;
+
+}
+.wrap .con img{
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+}
+.wrap span{
+    float: left;
+    text-align: left;
+}
+.wrap .con .n{
+
+    display: inline-block;
+}

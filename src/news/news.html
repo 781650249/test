@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>企业网站</title>
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="./news.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="font">
+                <img src="https://img.bosszhipin.com/beijin/upload/com/logo/20190713/35133430f6c9a0c9feb15707667e47cec377f0cc7c2209ba9054ef9d4b703cde.jpg?x-oss-process=image/resize,w_120,limit_0"
+                    alt="">
+
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="../news/news.html">新闻</a></li>
+                    <li><a href="../about/about.html">关于我们</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="content">
+
+            <div class="news">
+                <h3>最近新闻</h3>
+            </div>
+          <div class="wrap">
+            <ul class="showSection">
+                <li class="tpl">
+                    <!-- <h1>1111</h1>
+                    <b>2222</b><b>3333</b>
+                    <h2>44444</h2>
+                    <img src="" alt=""> -->
+                </li>
+            </ul>
+          </div>
+           <div class="page">
+               <div class="current">
+                   当前页：<span></span>
+               </div>
+            <button class="changeMinus">上一页</button>
+            <button class="changeAdd">下一页</button>
+           </div>
+        </div>
+
+        <div class="footer">
+            <div class="foot">
+                <ul>
+                    <li>
+                        <img src="../image/地址.png" alt="">
+                        <span>福州苍山万达店</span>
+                    </li>
+
+                    <li> <img src="../image/邮箱.png" alt="">
+                        <span>admin@qq.com</span>
+                    </li>
+
+                    <li> <img src="../image/电话.png" alt="">
+                        <span>400-200-4567</span>
+                    </li>   
+
+                    <li> <img src="../image/微信.png" alt="">
+                        <span>扫一扫,加入无锋</span>
+                    </li>
+                </ul>
+                版权所有@无锋网络
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.js"></script>
+    <script>
+
+
+        var curPage = 0;
+        var totalPage = null;
+        var data;
+
+
+        const Get = async url => {
+           try{
+            this.res = await axios.get('/news')
+            data = res.data.data.data
+            totalPage = data.length / 10
+            console.log(data)
+            RandNews(data)
+           }catch{
+               console.log('数据没有返回')
+           }
+        }
+        Get()
+
+        function bindEvent() {
+            $('.load').show()
+            $('.content').find('.changeAdd').on('click', function () {
+                curPage = ++curPage % totalPage;
+                RandNews(data)
+                $('.current').find('span').html(curPage+1)
+            })
+            $('.content').find('.changeMinus').on('click', function () {
+                curPage = --curPage % totalPage;
+                if(curPage<0){
+                    curPage=2
+                }
+                RandNews(data)
+                $('.current').find('span').html(curPage+1)
+            })
+        }
+
+        $('.current').find('span').html(curPage+1)
+        bindEvent()
+        function RandNews(data) {
+            var arr;
+            var template = null;
+            var len = (data.length - curPage * 10) >= 10 ? 10 : data.length - curPage * 10;
+            
+            console.log(curPage)
+            $('.content').find('.showItem').remove()
+            for (var i = 0; i < 10; i++) {
+                ele = data[i + curPage * 10];
+                template = `  <li  class="tpl" >
+                                <div class='con'> 
+                                <a href="../detail/detail.html"><h1>${ele.ctitle}</h1></a>
+                                发布时间: <b>${ele.timessss}</b> 作者:<b>${ele.cname}</b>
+                                <h2>${ele.paragraph1}</h2>
+                                </div>
+                                <image src=${ele.img} />
+                                </li> `
+
+                $('.showSection').append(template)
+                $('.content').find('.tpl').removeClass('tpl').addClass('showItem');
+            }
+        }
+  
+
+
+    </script>
+</body>
+
+</html>

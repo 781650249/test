@@ -1,0 +1,69 @@
+
+/* 新闻 */
+.content{
+    width: 1000px;
+    margin: 0 auto;
+  
+}
+
+.content .news{
+    width:100%;
+    height: 24px;
+    margin: 48px auto  0px;
+    text-align: center;
+}
+.news h3{
+    border-bottom: 1px lightgray solid ;
+}
+
+.wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+}
+.showSection{
+    width: 1000px;
+    box-sizing: border-box;
+    padding: 15px 0;
+}
+.showSection .con{
+    width: 220px;
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 35px;
+
+    padding: 20px ;
+}
+.showSection li{
+    flex-wrap: wrap;
+    width: 50%;
+    list-style: none;
+    float: left;
+   
+}
+.showSection li a{
+    text-decoration: none;
+}
+.showSection li h1{
+    font-size: 13px;
+    text-align: center;
+
+}
+.showSection li h1:hover{
+    color: red;
+    cursor: pointer;
+}
+.showSection li b{
+    font-size: 12px;
+}
+.showSection li h2{
+    font-size: 12px;
+    margin-top: 5px;
+}
+.showSection li img{
+    float: left; 
+    margin-top: 20px;
+}
